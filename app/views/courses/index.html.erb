@@ -5,17 +5,12 @@
 </div>
 
 <div class="row">
+  <% @courses.each do |course| %>
   <div class="col s12 m6">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
-        <span class="card-title">CS111: Intro to Computer Science</span>
-        <p>
-          A thorough intro to Computer Science. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Vivamus justo erat, rutrum sed dictum et, placerat quis libero. Praesent id metus dapibus, 
-          varius dolor at, iaculis nunc. Pellentesque purus est, ultrices sit amet pulvinar non, mattis 
-          sit amet neque. Nunc tellus lorem, vestibulum eu augue nec, dictum commodo erat. Vestibulum 
-          ultricies id justo ut volutpat.
-        </p>
+        <span class="card-title"><%= course.short_name %>: <%= course.name %></span>
+        <p><%= course.description %></p>
       </div>
       <div class="card-action">
         <a href="#">Enroll</a>
@@ -23,23 +18,5 @@
       </div>
     </div>
   </div>
-
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">CS112: Intro to Computer Science 2</span>
-        <p>
-          An intermediate look at Computer Science. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Vivamus justo erat, rutrum sed dictum et, placerat quis libero. Praesent id metus dapibus, varius 
-          dolor at, iaculis nunc. Pellentesque purus est, ultrices sit amet pulvinar non, mattis sit amet 
-          neque. Nunc tellus lorem, vestibulum eu augue nec, dictum commodo erat. Vestibulum ultricies id 
-          justo ut volutpat.
-        </p>
-      </div>
-      <div class="card-action">
-        <a href="#">Enroll</a>
-        <a href="#">Info</a>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>

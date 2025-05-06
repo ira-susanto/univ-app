@@ -1,19 +1,33 @@
-<%= form_for(@student, html: { class: "col s12" }) do |form| %>
-  <div class="row">
-    <div class="input-field col s12">
-      <%= form.text_field :name, placeholder: "Enter your full name", autofocus: true%>
-      <%= form.label :name %>
+<%= render "shared/errors", obj: student %>
+
+<div class="container">
+  <div class="row center sign-up-form">
+    <div class="col s12 m12 l12">
+      <div class="card-panel">
+        <h3 class="header"><%= student.new_record? ? "Sign Up!" : "Edit your profile" %></h3>
+        <div class="row">
+          <%= form_for(student, html: { class: "col s12" }) do |form| %>
+            <div class="row">
+              <div class="input-field col s12">
+                <%= form.text_field :name, placeholder: "Enter your full name", autofocus: true%>
+                <%= form.label :name %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <%= form.text_field :email, placeholder: "Enter your email address" %>
+                <%= form.label :email %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <%= form.submit student.new_record? ? "Sign Up" : "Submit Changes", class: "btn orange waves-effect waves-light right" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <%= form.text_field :email, placeholder: "Enter your email address" %>
-      <%= form.label :email %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <%= form.submit @student.persisted? ? "Submit Changes" : "Sign Up", class: "btn orange waves-effect waves-light right" %>
-    </div>
-  </div>
-<% end %>
+<div>
+

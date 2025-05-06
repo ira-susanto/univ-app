@@ -21,6 +21,10 @@ class StudentsController < ApplicationController
     end
   end
 
+  def show
+    @student = Student.find(params[:id])
+  end
+
   private
     # Only allow a list of trusted parameters through.
     def student_params
